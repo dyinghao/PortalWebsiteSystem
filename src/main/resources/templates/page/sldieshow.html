@@ -119,14 +119,14 @@
             elem: '#test10'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/image_out/'+res.imagefile_path);
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
             }
         });
         upload.render({
             elem: '#test11'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadview').removeClass('layui-hide').find('img').attr('src', '/layuimini/image_out/'+res.imagefile_path);
+                $('#uploadview').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
             }
         });
         $(document).on('click','#shan',function(){

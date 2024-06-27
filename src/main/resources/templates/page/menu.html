@@ -86,7 +86,7 @@
                     <a class= "wql" href="#">替换</a><br/>
                     <a class="fq" href="#">删除</a>
                 </div>
-                <img th:src="@{'/layuimini/image_out/'+ ${image_url.image_name}}" width="160px" height="240px" alt=""/>
+                <img th:src="@{'/layuimini/images/'+ ${image_url.image_name}}" width="160px" height="240px" alt=""/>
                 <div style="display: none">
                     <span class="type" th:text="${image_url.image_type}"></span>
                     <span class="type_image" th:text="${image_url.image_to}"></span>
@@ -165,7 +165,7 @@
                             }}
                         })}
                     if(node==3){
-                        var src_slideshow="/layuimini/image_out/"+src_chu
+                        var src_slideshow="/layuimini/images/"+src_chu
                         $.ajax({
                             url:"/delete_slideshow",
                             type:"post",
@@ -191,7 +191,7 @@
             elem: '#test10'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/image_out/'+res.imagefile_path);
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
             }
         });
 
@@ -203,7 +203,7 @@
 
             var src_chuli=image_name_old.lastIndexOf("：")+1;
             var  src_chuli_s=image_name_old.substring(src_chuli)
-            var src_slideshow="/layuimini/image_out/"+src_chuli_s
+            var src_slideshow="/layuimini/images/"+src_chuli_s
             if(node!=3){$.ajax({
                 url:"/image_update",
                 type:"post",

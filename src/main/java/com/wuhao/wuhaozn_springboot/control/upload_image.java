@@ -32,7 +32,7 @@ public class upload_image {
             String fuffixname = file_name.substring(file_name.lastIndexOf("."));
 
 
-            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/layuimini/image_out/";
+            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/layuimini/images/";
 
             String filePath =  UUID.randomUUID() + fuffixname;
 

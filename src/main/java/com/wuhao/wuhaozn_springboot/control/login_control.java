@@ -3,7 +3,6 @@ package com.wuhao.wuhaozn_springboot.control;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import com.wuhao.wuhaozn_springboot.server.login_server;
-import com.wuhao.wuhaozn_springboot.util.AuthCode;
 import com.wuhao.wuhaozn_springboot.util.StateUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -13,9 +12,7 @@ import org.apache.shiro.subject.Subject;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
-import sun.nio.ch.IOUtil;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;

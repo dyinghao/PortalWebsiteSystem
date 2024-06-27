@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>空想家</title>
+      <title>深树荫</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -72,7 +72,7 @@
                         <a class="nav-link " th:href="@{/solution}">解决方案</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link " th:href="@{/blog}">专利荣誉</a>
+                        <a class="nav-link " th:href="@{/blog}">新闻</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" th:href="@{/successful}">成功案例</a>
@@ -90,22 +90,22 @@
                <div class="carousel-inner">
                   <div class="carousel-item active">
                      <div class="container">
-                        <h1 class="banner_taital">空想家</h1>
+                        <h1 class="banner_taital">深树荫</h1>
                         <p class="banner_text">Hebei Intelligent Technology Co Ltd</p>
                         <div class="read_bt"><a class="aboutus" href="">关于我们</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="container">
-                        <h1 class="banner_taital">空想家</h1>
+                        <h1 class="banner_taital">深树荫</h1>
                         <p class="banner_text">Hebei Intelligent Technology Co Ltd</p>
                         <div class="read_bt"><a class="aboutus" href="">关于我们</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="container">
-                        <h1 class="banner_taital">空想家</h1>
-                        <p class="banner_text">Hebei Intelligent Technology Co Ltd</p>
+                        <h1 class="banner_taital">深树荫</h1>
+                        <p class="banner_text">ShenShuYin Intelligent Technology Co Ltd</p>
                         <div class="read_bt"><a href="" class="aboutus">关于我们</a></div>
                      </div>
                   </div>
@@ -118,8 +118,8 @@
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-            <h1 class="services_taital">产品简介 </h1>
-            <p class="services_text">公司自主研发</p>
+            <h1 class="services_taital">产品简介</h1>
+            <p class="services_text">自主研发</p>
             <div class="services_section_2">
                <div class="row">
                   <div class="col-md-4" th:each="cp,item :${session.cp}">
@@ -132,63 +132,63 @@
          </div>
       </div>
 
+<!--paused by hai for temp-->
+<!--      <div>-->
+<!--         <div class="container">-->
+<!--            <h1 class="services_taital">专利介绍 </h1>-->
+<!--            <p class="services_text">公司申请国家的专利</p>-->
 
-      <div>
-         <div class="container">
-            <h1 class="services_taital">专利介绍 </h1>
-            <p class="services_text">公司申请国家的专利</p>
+<!-- <div class="about_section ">-->
+<!--         <div class="container-fluid">-->
+<!--            <div class="row" th:each="zl,item :${session.zl}">-->
+<!--               <div class="col-md-6">-->
+<!--                  <div>-->
+<!--                     <h1 class="about_taital" th:text="${zl.patents_name}"></h1>-->
+<!--                     <p class="about_text" th:text="${zl.patents_brief}">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>-->
+<!--                     <div class="readmore_bt"><a th:href="@{/blog}">专利详情</a></div>-->
+<!--                  </div>-->
+<!--               </div>-->
+<!--               <div class="col-md-6 padding_right_0">-->
+<!--                  <div><img style="width: 670px;height: 370px" th:src="@{${zl.patents_image}}" class="about_img"></div>-->
+<!--               </div>-->
+<!--               &nbsp;&nbsp;&nbsp;-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
 
- <div class="about_section ">
-         <div class="container-fluid">
-            <div class="row" th:each="zl,item :${session.zl}">
-               <div class="col-md-6">
-                  <div>
-                     <h1 class="about_taital" th:text="${zl.patents_name}"></h1>
-                     <p class="about_text" th:text="${zl.patents_brief}">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All </p>
-                     <div class="readmore_bt"><a th:href="@{/blog}">专利详情</a></div>
-                  </div>
-               </div>
-               <div class="col-md-6 padding_right_0">
-                  <div><img style="width: 670px;height: 370px" th:src="@{${zl.patents_image}}" class="about_img"></div>
-               </div>
-               &nbsp;&nbsp;&nbsp;
-            </div>
-         </div>
-      </div>
-
-            </div>
-      </div>
+<!--            </div>-->
+<!--      </div>-->
      
-      <div class="client_section ">
-         <div class="container">
-            <h1 class="client_taital">轮播图</h1>
-            <div class="client_section_2">
-               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                  <ol class="carousel-indicators">
+<!--      <div class="client_section ">-->
+<!--         <div class="container">-->
+<!--            <h1 class="client_taital">轮播图</h1>-->
+<!--            <div class="client_section_2">-->
+<!--               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
+<!--                  <ol class="carousel-indicators">-->
 
-                     <li th:each="intro,item :${session.company_list}" th:attr="data-slide-to=${item.index}" data-target="#carouselExampleIndicators" class=""th:classappend="${item.index==0} ? 'active' : ''"></li>
-                  </ol>
-                  <div class="carousel-inner" >
-                     <div th:each="intros,items :${session.company_list}" class="carousel-item "th:classappend="${items.index==0}?'active':''">
-                        <div  class="client_main">
-                           <div class="box_left">
-                              <p class="lorem_text" th:text="${intros.image_information}">内容</p>
-                           </div>
-                           <div class="box_right">
-                                 <img  style="width: 700px;height: 300px" th:src="@{${intros.image_path_url}}"/>
-                           </div>
-                        </div>
-                     </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-
-               </div>
-            </div>
-         </div>
-      </div>
+<!--                     <li th:each="intro,item :${session.company_list}" th:attr="data-slide-to=${item.index}" data-target="#carouselExampleIndicators" class=""th:classappend="${item.index==0} ? 'active' : ''"></li>-->
+<!--                  </ol>-->
+<!--                  <div class="carousel-inner" >-->
+<!--                     <div th:each="intros,items :${session.company_list}" class="carousel-item "th:classappend="${items.index==0}?'active':''">-->
+<!--                        <div  class="client_main">-->
+<!--                           <div class="box_left">-->
+<!--                              <p class="lorem_text" th:text="${intros.image_information}">内容</p>-->
+<!--                           </div>-->
+<!--                           <div class="box_right">-->
+<!--                                 <img  style="width: 700px;height: 300px" th:src="@{${intros.image_path_url}}"/>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                              </div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!---->
+<!--               </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--      </div>-->
 
 
       <!-- client section start -->
