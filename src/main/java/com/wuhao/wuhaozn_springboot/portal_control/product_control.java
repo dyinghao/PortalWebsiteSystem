@@ -23,6 +23,7 @@ public class product_control {
         IPage<product_bean> iPage=productService.select_product(product_beanPage);
         List<product_bean> list = iPage.getRecords();
         model.addAttribute("product",list);
+        System.out.println("list = " + list);
         return "services";
     }
 

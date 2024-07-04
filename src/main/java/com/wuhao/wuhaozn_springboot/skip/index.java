@@ -52,6 +52,7 @@ public String log(HttpSession session){
     List<product_bean> list1=productService.select_product();
     if(list1.size()!=0) {
         List<product_bean> list2 = new ArrayList<>();
+        System.out.println("list1 = " + list1);
 
         for (int i = 1; i <= 3; i++) {
             String index = "cp" + i;

@@ -32,6 +32,7 @@ public class Product_all_control {
     @PostMapping("/product")
     @ResponseBody
     public StateUtil insert_product(product_bean productBean){
+        System.out.println("提交按钮触发，这里是往数据库中添加路径 productBean = " + productBean);
         if(!ObjectUtils.isEmpty(productBean)) {
             int code = productService.insert_product(productBean);
             int index=productBean.getProduct_image().lastIndexOf("/");
@@ -42,7 +43,7 @@ public class Product_all_control {
             image_bean.setImage_to_id(productBean.getId());
             imageService.insert_image(image_bean);
             if(code==1){
-
+                System.out.println("！！！");
                return new StateUtil("添加成功！",200);
             }
 

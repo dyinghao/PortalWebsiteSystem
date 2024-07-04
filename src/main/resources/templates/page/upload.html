@@ -74,7 +74,9 @@
             elem: '#test10'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                console.log("my res = " + res)
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'http://shenshuyin.com:/images/'+res.imagefile_path);
+                // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'E:\\shenshuyinweb\\PortalWebsiteSystem\\images\\'+res.imagefile_path);
             }
         });
 
@@ -98,8 +100,10 @@
 
 
         form.on("submit(tijiao)",function (datas) {
+            console.log(datas.field)
             var text = layedit.getContent(index)
             var src=$('#uploadDemoView').find("img").attr("src");
+            console.log("my src = " + src)
 
             data=datas.field;
             if(data.product==1){
@@ -119,7 +123,7 @@
                         if(num==0){
                         layer.msg('添加成功', {
                             icon: 1,
-                            time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                            time: 3000 //2秒关闭（如果不配置，默认是3秒）
                         }, function(){
                             history.go(0);
                         })
