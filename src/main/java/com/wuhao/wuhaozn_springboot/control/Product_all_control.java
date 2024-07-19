@@ -43,7 +43,7 @@ public class Product_all_control {
             image_bean.setImage_to_id(productBean.getId());
             imageService.insert_image(image_bean);
             if(code==1){
-                System.out.println("！！！");
+                System.out.println("！！！productBean image = " + productBean.getProduct_image());
                return new StateUtil("添加成功！",200);
             }
 

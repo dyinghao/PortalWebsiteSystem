@@ -59,8 +59,9 @@ public class upload_image {
 
     @GetMapping("/upload")
     public String upload(){
+//        1.用 service 查询传进来的信息
 
-
+//        2.用 service 更新数据库信息
         return "page/upload";
     }
 

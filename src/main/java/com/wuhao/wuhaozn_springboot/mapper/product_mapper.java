@@ -33,4 +33,10 @@ public interface product_mapper extends BaseMapper<product_bean> {
 
         @Select("select * from product_table")
         public List<product_bean> select_product();
+
+        @Select("select * from prodcut_table where product_name=#{product_name}")
+        public product_bean selectByProductName(String product_name);
+
+        @Update("update product_table set product_image=#{product_image}, product_name = #{product_name}},product_brief = #{product_brief}},product_content = #{product_content} where id=#{id}")
+        public boolean update_by_id(String product_image, String product_name, String product_brief, String product_content, int id);
 }

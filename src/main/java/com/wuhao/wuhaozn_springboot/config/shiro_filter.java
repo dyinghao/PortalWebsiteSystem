@@ -23,6 +23,7 @@ public class shiro_filter  {
             map.put("/login","anon");
             map.put("/","anon");
             map.put("/user/**","authc");
+            map.put("/pics/**", "anon");
 
             shiroFilterFactoryBean.setLoginUrl("/");
             shiroFilterFactoryBean.setFilterChainDefinitionMap(map);

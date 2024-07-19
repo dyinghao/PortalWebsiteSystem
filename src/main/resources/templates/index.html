@@ -36,14 +36,14 @@
                         <li class="nav-item">
                            <a class="nav-link" th:href="@{/services}">产品介绍</a>
                         </li>
-                        <li class="nav-item">
-                           <a class="nav-link " th:href="@{/solution}">解决方案</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link " th:href="@{/blog}">专利荣誉</a>
-                        </li>
-                        <li class="nav-item">
-                           <a class="nav-link" th:href="@{/successful}">成功案例</a>
+<!--                        <li class="nav-item">-->
+<!--                           <a class="nav-link " th:href="@{/solution}">解决方案</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                           <a class="nav-link " th:href="@{/blog}">专利荣誉</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                           <a class="nav-link" th:href="@{/successful}">成功案例</a>-->
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" th:href="@{/about}">关于我们</a>
@@ -68,15 +68,15 @@
                      <li class="nav-item">
                         <a class="nav-link" th:href="@{/services}">产品介绍</a>
                      </li>
-                     <li class="nav-item">
-                        <a class="nav-link " th:href="@{/solution}">解决方案</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link " th:href="@{/blog}">新闻</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/successful}">成功案例</a>
-                     </li>
+<!--                     <li class="nav-item">-->
+<!--                        <a class="nav-link " th:href="@{/solution}">解决方案</a>-->
+<!--                     </li>-->
+<!--                     <li class="nav-item">-->
+<!--                        <a class="nav-link " th:href="@{/blog}">新闻</a>-->
+<!--                     </li>-->
+<!--                     <li class="nav-item">-->
+<!--                        <a class="nav-link" th:href="@{/successful}">成功案例</a>-->
+<!--                     </li>-->
                      <li class="nav-item">
                         <a class="nav-link" th:href="@{/about}">关于我们</a>
                      </li>
@@ -91,22 +91,22 @@
                   <div class="carousel-item active">
                      <div class="container">
                         <h1 class="banner_taital">深树荫</h1>
-                        <p class="banner_text">Hebei Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a class="aboutus" href="">关于我们</a></div>
+                        <p class="banner_text">Shenshuyin Intelligent Technology Co Ltd</p>
+                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="container">
                         <h1 class="banner_taital">深树荫</h1>
-                        <p class="banner_text">Hebei Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a class="aboutus" href="">关于我们</a></div>
+                        <p class="banner_text">Shenshuyin Intelligent Technology Co Ltd</p>
+                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>
                      </div>
                   </div>
                   <div class="carousel-item">
                      <div class="container">
                         <h1 class="banner_taital">深树荫</h1>
                         <p class="banner_text">ShenShuYin Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a href="" class="aboutus">关于我们</a></div>
+                        <div class="read_bt"><a th:href="@{/about}" class="aboutus">关于我们</a></div>
                      </div>
                   </div>
                </div>
@@ -125,6 +125,7 @@
                   <div class="col-md-4" th:each="cp,item :${session.cp}">
                      <div><img style="width: 400px;height: 400px" th:src="@{${cp.product_image}}" class="services_img"></div>
                      <div class="btn_main"><a th:href="@{/services}">产品详情</a></div>
+<!--                     <div class="btn_main"><a href="#" class="a_detailpage2">产品详情</a></div> &lt;!&ndash; 应该是某个产品对应的 detailpages_services页面 &ndash;&gt;-->
                   </div>
                </div>
             </div>
@@ -196,11 +197,11 @@
       <div class="choose_section layout_padding">
          <div class="container">
             <h1 class="choose_taital">为什么选择我们</h1>
-            <p class="choose_text">内容 </p>
-            <div class="read_bt_1"><a href="#">了解更多</a></div>
+            <p class="choose_text">选择深树荫，您将受益于尖端技术、广泛的应用范围、高精度和效率，以及市场认可的技术创新。我们能提供稳定可靠的技术支持，助您提升生产效率和产品质量。</p>
+            <div class="read_bt_1"><a th:href="@{/about}">了解更多</a></div>
             <div class="newsletter_box">
                <h1 class="let_text">Let Start Talk with Us</h1>
-               <div class="getquote_bt"><a href="#">Get A Quote</a></div>
+               <div class="getquote_bt"><a th:href="@{/about}">Get A Quote</a></div>
             </div>
          </div>
       </div>
@@ -227,6 +228,29 @@
             }
          })
       })
+
+      $(document).on("click", ".a_detailpage2", function () {
+          var names=$(this).parent().prev().prev().text(); // 假设.name-selector是包含名字的元素
+          console.log("names = " + names)
+          $.ajax({
+              url: "/product/show_detailpage", // 修正这里
+              type: "post",
+              dataType: "json",
+              data: {
+                  name: names
+              },
+              success: function (res) {
+                  // 处理成功响应
+                  // console.log("Data received:", res);
+                  window.location.href = "/detailpages_services";
+              },
+              error: function (jqXHR, textStatus, errorThrown) {
+                  // 处理错误响应
+                  alert("加载产品详情失败: " + errorThrown);
+                  console.log("Error details:", textStatus, errorThrown);
+              }
+          });
+      });
 
    </script>
    </body>

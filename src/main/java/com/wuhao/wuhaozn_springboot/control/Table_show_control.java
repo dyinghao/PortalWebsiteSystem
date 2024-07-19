@@ -4,14 +4,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wuhao.wuhaozn_springboot.bean.product_bean;
 import com.wuhao.wuhaozn_springboot.server.product_ser;
-import com.wuhao.wuhaozn_springboot.server.product_service;
 import com.wuhao.wuhaozn_springboot.util.StateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -109,7 +105,13 @@ public class Table_show_control {
 
     @GetMapping("/product_table")
     public String product_table(){
+      return "page/table";
+    }
 
-
-        return "page/table";
-}}
+    @PostMapping("/edit_product")
+    public String edit_product(product_bean product_bean, HttpSession httpSession) {
+      boolean updateResult = productService.updateById(product_bean);
+      httpSession.setAttribute("updateResult", updateResult);
+      return "page/table";
+    }
+}

@@ -74,7 +74,8 @@
             elem: '#test10'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                console.log("about image = " + res.imagefile_path)
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/pics/'+res.imagefile_path);
             }
         });
 

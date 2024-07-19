@@ -75,7 +75,8 @@
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
                 console.log("my res = " + res)
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'http://shenshuyin.com:/images/'+res.imagefile_path);
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/pics/'+res.imagefile_path);
+                // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'http://shenshuyin.com:/enterprise_website/images/'+res.imagefile_path);
                 // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'E:\\shenshuyinweb\\PortalWebsiteSystem\\images\\'+res.imagefile_path);
             }
         });

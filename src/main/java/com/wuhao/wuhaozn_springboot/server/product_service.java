@@ -61,4 +61,13 @@ public class product_service  implements product_ser{
         return productMapper.select_product();
     }
 
+    public product_bean selectByProductName(String name) {
+        return productMapper.selectByProductName(name);
+    }
+
+    public boolean updateById(product_bean product_bean) {
+        return productMapper.update_by_id(product_bean.getProduct_image(), product_bean.getProduct_name(),
+                product_bean.getProduct_brief(), product_bean.getProduct_content(), product_bean.getId());
+    }
+
 }

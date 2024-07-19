@@ -5,8 +5,6 @@ spring:
 #    url: jdbc:mysql://192.168.10.100:3306/kxj_database?useUnicode=true&characterEncoding=utf8
     username: root
     password: Abcd_12345678
-#  resources:
-#    static-locations: "file:/here/some/path"
   servlet:
     multipart:
       max-file-size: 10MB
@@ -15,4 +13,13 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
 server:
-  port: 8080
+  port: 80
+logging:
+  level:
+    root: WARN
+#    root: DEBUG
+    org.springframework.web: DEBUG
+  file:
+    name: web_log
+#imagepath: E:\shenshuyinweb\PortalWebsiteSystem\images\
+imagepath: /enterprise_website/images/

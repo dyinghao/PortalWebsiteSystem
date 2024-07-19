@@ -29,11 +29,22 @@ public class article_image {
     public article_images upload_image(@RequestParam(value = "file") MultipartFile file, Model model) throws IOException {
         if(!file.isEmpty()) {
 
+//            String file_name = file.getOriginalFilename();
+//            String fuffixname = file_name.substring(file_name.lastIndexOf("."));
+//
+//
+//            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/layuimini/image_article/";
+//
+//            String filePath =  UUID.randomUUID() + fuffixname;
+
             String file_name = file.getOriginalFilename();
             String fuffixname = file_name.substring(file_name.lastIndexOf("."));
 
 
-            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/layuimini/image_article/";
+//            String path = ClassUtils.getDefaultClassLoader().getResource("").getPath() + "static/layuimini/images/";
+            String separator = File.separator;
+            String path = System.getProperty("user.dir") + separator + "images" + separator;
+            System.out.println("my article image path = " + path);
 
             String filePath =  UUID.randomUUID() + fuffixname;
 
@@ -49,14 +60,14 @@ public class article_image {
             file.transferTo(file1);
 
             System.out.println("上传完成！！");
-            return new article_images(0,"上传成功",new data_util("/layuimini/image_article/"+filePath,"无"));
+            return new article_images(0,"上传成功",new data_util("/pics/"+filePath,"无"));
 
         }else {
 
             System.out.println("文件为空！！");
 
         }
-        return new article_images(400,"上传失败",new data_util("/layuimini/image_article/","无"));
+        return new article_images(400,"上传失败",new data_util("/pics/","无"));
     }
 
 }
