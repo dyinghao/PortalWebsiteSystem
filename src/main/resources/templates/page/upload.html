@@ -6,6 +6,12 @@
     <link rel="stylesheet" th:href="@{/layuimini/lib/layui-v2.5.5/css/layui.css}" media="all">
     <link rel="stylesheet" th:href="@{/layuimini/lib/jq-module/zyupload/zyupload-1.0.0.min.css}" media="all">
     <link rel="stylesheet" th:href="@{/layuimini/css/public.css}" media="all">
+<!--    <style>-->
+<!--        .layedit img {-->
+<!--            max-width: 80%; /* 图片最大宽度为编辑器宽度 */-->
+<!--            height: auto; /* 高度自适应 */-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <body>
 <div class="layuimini-container">
@@ -103,8 +109,15 @@
         form.on("submit(tijiao)",function (datas) {
             console.log(datas.field)
             var text = layedit.getContent(index)
-            var src=$('#uploadDemoView').find("img").attr("src");
-            console.log("my src = " + src)
+            console.log("my text = " + text)
+            var src = $('#uploadDemoView').find("img").attr("src");
+
+            // 定义正则表达式来匹配图片标签
+            var imgRegex = /<img src="([^"]+)" alt="无"><br>/g;
+
+            // 使用回调函数来替换所有匹配的图片标签
+            text = text.replace(imgRegex, '<img src="$1" height="50%" width="50%" style="display: block; margin-left: auto; margin-right: auto;" alt="无"><br>');
+            console.log("new text = " + text);
 
             data=datas.field;
             if(data.product==1){
@@ -134,7 +147,7 @@
                 })
             }
 
-           if(data.patents==2){
+            if(data.patents==2){
                $.ajax({
                    url :"/content/patents",
                    type: "post",
@@ -187,7 +200,6 @@
                         }
                     }})
             }
-
 
             if(data.case==4){
                 $.ajax({

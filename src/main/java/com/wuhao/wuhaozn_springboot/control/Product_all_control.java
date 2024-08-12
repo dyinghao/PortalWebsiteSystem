@@ -84,6 +84,7 @@ public class Product_all_control {
     @ResponseBody
     public StateUtil insert_case(case_bean caseBean){
         if(!ObjectUtils.isEmpty(caseBean)) {
+            // 写入表中
             int code = caseService.insert_case(caseBean);
             int index=caseBean.getCase_image().lastIndexOf("/");
             Image_bean image_bean =new Image_bean();

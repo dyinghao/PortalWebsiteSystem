@@ -106,6 +106,8 @@ public class case_show_control {
         case_bean productBean= caseService.select_detailpage(name);
         httpSession.setAttribute("detailpage_name",productBean.getCase_name());
         httpSession.setAttribute("detailpage_content",productBean.getCase_content());
+        httpSession.setAttribute("case_image",productBean.getCase_image());
+        System.out.println("content = " + productBean.getCase_content());
         return new StateUtil("成功",200);
     }
 }
