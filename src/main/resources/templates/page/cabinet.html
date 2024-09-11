@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>深树荫</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link th:include="common :: common_head">
+    <meta charset="utf-8">
+<!--    <title>产品列表</title>-->
+    <!-- 引入layui样式 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.5.7/css/layui.css" media="all">
+    <!-- 引入jquery库 -->
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <!-- 引入layui库 -->
+    <script src="https://cdn.staticfile.org/layui/2.5.7/layui.js"></script>
+</head>
+<body>
+
+<div class="layui-container">
+    <div class="layui-row">
+        <!-- 循环生成产品列表 -->
+        <div class="layui-col-md3" style="margin-bottom: 20px;">
+            <div class="layui-panel">
+                <div style="padding: 15px;">
+
+
+                    <div th:each="prod,iter :${products} " class="about_section layout_padding">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div>
+                                        <h2 th:text="${prod.product_name}" class="about_taital"></h2>
+                                        <p th:text="${prod.product_brief}" class="about_text"></p>
+                                        <div class="readmore_bt"><a href="#" class="a_detailpage">了解产品</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 padding_right_0">
+                                    <div><img th:src="@{${prod.product_image}}" class="about_img" style="width: 670px;height: 400px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <img th:src="${session.detailpage_img}" style="width: 100%;">
+                    <div style="margin-top: 10px;">
+                        <span style="color: red; font-size: 18px;">￥99.00</span>
+                    </div>
+                    <div>
+                        <span th:text="${session.detailpage_name}"></span>
+                        <span th:text="${session.detailpage_brief}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 更多产品... -->
+    </div>
+</div>
+
+<script type="application/javascript">
+    $(document).on("click", ".a_detailpage_list", function () {
+        var names=$(this).parent().prev().prev().text(); // 假设.name-selector是包含名字的元素
+        console.log("names = " + names)
+        $.ajax({
+            url: "/product/show_prod_list", // 修正这里
+            type: "post",
+            dataType: "json",
+            success: function (res) {
+                // 处理成功响应
+                // console.log("Data received:", res);
+                window.location.href = "/detailpages_services";
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // 处理错误响应
+                alert("加载产品详情失败: " + errorThrown);
+                console.log("Error details:", textStatus, errorThrown);
+            }
+        });
+    });
+</script>
+
+<script>
+    // 初始化layui
+    layui.use(['element'], function(){
+        var element = layui.element;
+    });
+
+</script>
+
+</body>
+</html>

@@ -7,4 +7,6 @@ import com.wuhao.wuhaozn_springboot.bean.product_bean;
 public interface product_service {
 
     public IPage<product_bean> select_product(Page page);
+
+    public product_bean getProdById(String id);
 }

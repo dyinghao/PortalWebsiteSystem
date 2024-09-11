@@ -1,6 +1,8 @@
 package com.wuhao.wuhaozn_springboot.control;
 
 
+import com.wuhao.wuhaozn_springboot.bean.product_bean;
+import com.wuhao.wuhaozn_springboot.portal_service.product_service;
 import com.wuhao.wuhaozn_springboot.server.image_service;
 import com.wuhao.wuhaozn_springboot.util.StateUtil;
 import com.wuhao.wuhaozn_springboot.util.Uploadimage_load;
@@ -21,7 +23,8 @@ import java.util.UUID;
 @Controller
 public class upload_image {
 
-
+    @Autowired
+    product_service productService;
 
     @PostMapping("/upload_image")
     @ResponseBody
@@ -60,6 +63,22 @@ public class upload_image {
     @GetMapping("/upload")
     public String upload(){
 //        1.用 service 查询传进来的信息
+
+//        2.用 service 更新数据库信息
+        return "page/upload";
+    }
+
+    @GetMapping("/search")
+    public String search(product_bean prod){
+        product_bean targetProd = productService.getProdById("" + prod.getId());
+        return "page/upload";
+    }
+
+    @GetMapping("/modify")
+    public String modify(product_bean prod){
+//        1.用 service 查询传进来的信息
+        product_bean targetProd = productService.getProdById("" + prod.getId());
+
 
 //        2.用 service 更新数据库信息
         return "page/upload";

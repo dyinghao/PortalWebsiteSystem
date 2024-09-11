@@ -35,7 +35,7 @@
                         </div>
                      </div>
                      <div class="col-md-6 padding_right_0">
-                        <div><img th:src="@{${prod.product_image}}" class="about_img" style="width: 400px;height: 400px"></div>
+                        <div><img th:src="@{${prod.product_image}}" class="about_img" style="width: 670px;height: 400px"></div>
                      </div>
                   </div>
                </div>
@@ -49,6 +49,32 @@
    <div th:replace="common :: common_beinan"></div>
 
    <div th:replace="common :: common_src"></div>
+
+<!--   <script type="application/javascript">-->
+
+<!--      $(document).on("click",".a_detailpage",function () {-->
+<!--         var names=$(this).parent().prev().prev().text();-->
+<!--         // alert("yeah 1! names are " + names)-->
+<!--         $.ajax(-->
+<!--            url:"/product/show_detailpage",-->
+<!--            type:"post",-->
+<!--            dataType:"json",-->
+<!--            data:{-->
+<!--               name:names-->
+<!--            },-->
+<!--            // success:function (res) {-->
+<!--            //    alert("yeah 2!" + res)-->
+<!--            //    console.log("yeah3 data is :" + res)-->
+<!--            //    window.location.href = "/detailpages_services";-->
+<!--            //    console.log("yeah4 data is :" + res)-->
+<!--            // },-->
+<!--            // error: function(jqXHR, textStatus, errorThrown) {-->
+<!--            //    // 在这里处理错误情况-->
+<!--            //    alert("加载产品详情失败: " + errorThrown +", " + jqXHR + ", " + textStatus);-->
+<!--            //    console.log("yeah5 data is :" + errorThrown)-->
+<!--            // }-->
+<!--         })-->
+<!--      })-->
 
 
 <!--   </script>-->

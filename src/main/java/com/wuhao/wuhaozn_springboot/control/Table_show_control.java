@@ -99,7 +99,13 @@ public class Table_show_control {
         return new StateUtil("成功",200);
    }
 
-
+  @PostMapping("/show_prod_list")
+  @ResponseBody
+  public StateUtil showProdList(String name, HttpSession httpSession){
+    List<product_bean> product_beans = productService.select_product();
+    httpSession.setAttribute("detail",product_beans);
+    return new StateUtil("成功",200);
+  }
 
 
 

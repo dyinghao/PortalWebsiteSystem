@@ -58,7 +58,7 @@ public String log(HttpSession session){
         for (int i = 0; i < (list1.size() >= 3 ? 3 : list1.size()); i++) {
             String index = "cp" + i;
 //            list2.add(list1.get(random.nextInt(list1.size())));
-            list2.add(list1.get(i + 1));// 暂时更改！
+            list2.add(list1.get(i));// 暂时更改！
         }
         session.setAttribute("cp", list2);
     }else {

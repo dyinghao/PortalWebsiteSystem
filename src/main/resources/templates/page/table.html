@@ -160,7 +160,7 @@
         table.on('tool(currentTableFilter)', function (obj) {
 
             var data = obj.data;
-            var url_="/upload"
+            var url_="/search"
             if (obj.event === 'edit') {
 
                 var index = layer.open({
@@ -169,13 +169,14 @@
                     shade: 0.2,
                     maxmin:true,
                     shadeClose: true,
-                    // data: {"product_bean": obj.data}, // 试一下是否为obj，以及查询数据库所需要的条件
+                    data: {"product_bean": obj.data}, // 试一下是否为obj，以及查询数据库所需要的条件
                     area: ['75%', '75%'],
                     content: url_,
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
                 });
+                console.log("test obj = " + obj.data)
                 return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {

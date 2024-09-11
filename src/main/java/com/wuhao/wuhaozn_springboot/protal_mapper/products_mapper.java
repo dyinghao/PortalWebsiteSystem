@@ -13,5 +13,6 @@ public interface products_mapper extends BaseMapper<product_bean> {
     @Select("select * from product_table")
     public IPage<product_bean> select_product(Page page);
 
-
+    @Select("select * from prouct_table where ${id} = id")
+    public product_bean selectByProductId(String id);
 }

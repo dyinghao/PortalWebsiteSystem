@@ -19,4 +19,9 @@ public class product_service_ implements product_service {
       return   productMapper.select_product(page);
 
     }
+
+    @Override
+    public product_bean getProdById(String id) {
+        return productMapper.selectByProductId(id);
+    }
 }
