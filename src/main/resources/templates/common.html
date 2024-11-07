@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c0b8714daf7adbdb9ebdf185385f7e0f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 <head th:fragment="common_head">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
@@ -9,7 +19,7 @@
     <link rel="stylesheet" th:href="@{/css/font-awesome.css}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
-<!--    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">-->
+    <!--    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">-->
     <link rel="stylesheet" th:href="@{/css/jquery.fancybox.min.css}" media="screen">
 </head>
 <body>
@@ -19,7 +29,8 @@
         <div class="mobile_menu">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="logo_mobile"><a th:href="@{/index}"><img src="images/logo.png"></a></div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -31,36 +42,36 @@
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/services}">产品介绍</a>
                         </li>
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link " th:href="@{/blog}">解决方案</a>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link " th:href="@{/blog}">新闻</a>-->
-<!--                        </li>-->
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link " th:href="@{/blog}">解决方案</a>-->
+                        <!--                        </li>-->
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link " th:href="@{/blog}">新闻</a>-->
+                        <!--                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/about}">成功案例</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " th:href="@{/blog}">关于我们</a>
                         </li>
-<!--                        <li class="nav-item">-->
-<!--                            <a class="nav-link " th:href="@{/login}">系统</a>-->
-<!--                        </li>-->
+                        <!--                        <li class="nav-item">-->
+                        <!--                            <a class="nav-link " th:href="@{/login}">系统</a>-->
+                        <!--                        </li>-->
                     </ul>
                 </div>
             </nav>
         </div>
         <div class="container-fluid">
-<!--            <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>-->
+            <!--            <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>-->
             <div class="menu_main">
                 <ul>
                     <li class="active"><a th:href="@{/home}">首页</a></li>
                     <li><a th:href="@{/services}">产品介绍</a></li>
-<!--                    <li><a th:href="@{/solution}">解决方案</a></li>-->
-<!--                    <li><a th:href="@{/blog}">专利荣誉</a></li>-->
+                    <!--                    <li><a th:href="@{/solution}">解决方案</a></li>-->
+                    <!--                    <li><a th:href="@{/blog}">专利荣誉</a></li>-->
                     <li><a th:href="@{/successful}">成功案例</a></li>
                     <li><a th:href="@{/about}">关于我们</a></li>
-<!--                    <li><a th:href="@{/login}">系统</a></li>-->
+                    <!--                    <li><a th:href="@{/login}">系统</a></li>-->
                 </ul>
             </div>
         </div>
@@ -74,9 +85,10 @@
             <div class="subscribe_bt"><a href="#">提交</a></div>
         </div>
         <div class="location_main">
-            <div class="call_text"><img src="images/call-icon.png"><a href="#" th:text="'电话：'+${session.company_phone}"></a>
+            <div class="call_text"><img src="images/call-icon.png"><a href="#"
+                                                                      th:text="'电话：'+${session.company_phone}"></a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <img src="images/mail-icon.png"><a href="#" >邮箱：ssy@shenshuyin.com</a>
+                <img src="images/mail-icon.png"><a href="#">邮箱：ssy@shenshuyin.com</a>
             </div>
 
 
@@ -95,7 +107,7 @@
     <script th:src="@{js/plugin.js}"></script>
     <script th:src="@{js/jquery.mCustomScrollbar.concat.min.js}"></script>
     <script th:src="@{js/custom.js}"></script>
-<!--    <script th:src="@{js/owl.carousel.js}"></script>-->
+    <!--    <script th:src="@{js/owl.carousel.js}"></script>-->
     <script th:src="@{js/jquery.fancybox.min.js}"></script>
 </div>
 
@@ -105,5 +117,51 @@
         <p class="copyright_text"><a target="_blank" href="http://sc.chinaz.com/moban/"> 沪ICP备 2024079046</a></p>
     </div>
 </div>
+
+<!--客服助手-->
+<!--<div th:fragment="common_consult"  class="embed-messageboard-container">-->
+<!--    <div class="embed-messageboard-header">-->
+<!--        <span class="embed-messageboard-header-title">请您留言</span>-->
+<!--        <span class="embed-messageboard-header-close"></span>-->
+<!--    </div>-->
+<!--    <div >-->
+<!--        <div class="embed-messageboard-text">-->
+<!--            <p  class="embed-messageboard-company">感谢您对深树荫的关注，请在留言区填写详细需求，我们尽快安排人员与您取得联系。</p>-->
+<!--        </div>-->
+<!--        <div class="embed-messageboard-form" style="&#45;&#45;488531de: #6696FF;">-->
+<!--            <div class="">-->
+<!--                <div class="embed-messageboard-form-content"><textarea data-v-39c4214d=""-->
+<!--                                                                                          placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）"></textarea>-->
+<!--                </div>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>-->
+<!--            <div class="">&lt;!&ndash;&ndash;&gt;-->
+<!--                <div class="embed-messageboard-form-item"><label data-v-39c4214d=""-->
+<!--                                                                                    class="embed-messageboard-form-label embed-messageboard-form-icon-name"></label><input-->
+<!--                        class="embed-messageboard-form-input" placeholder="姓名（必填）" maxlength="30">-->
+<!--                </div>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>-->
+<!--            <div class="">&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;-->
+<!--                <div class="embed-messageboard-form-item"><label data-v-39c4214d=""-->
+<!--                                                                                    class="embed-messageboard-form-label embed-messageboard-form-icon-phone"></label><input-->
+<!--                        class="embed-messageboard-form-input" placeholder="电话（必填）" maxlength="30">-->
+<!--                </div>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>-->
+<!--            <div class="">-->
+<!--                <div class="embed-messageboard-form-item"><label data-v-39c4214d=""-->
+<!--                                                                                    class="embed-messageboard-form-label embed-messageboard-form-icon-ext"></label><input-->
+<!--                        class="embed-messageboard-form-input" placeholder="公司（必填）" maxlength="50">-->
+<!--                </div>&lt;!&ndash;&ndash;&gt;&lt;!&ndash;&ndash;&gt;</div>-->
+<!--            <div class="embed-messageboard-send">-->
+<!--                <div class="embed-messageboard-send-btn">提交</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div data-v-b38b337f=""  class="embed-messageboard-result"-->
+<!--             style="display: none; &#45;&#45;85fcfdfc: #6696FF;">-->
+<!--            <div data-v-b38b337f="" class="embed-messageboard-result-box">-->
+<!--                <div data-v-b38b337f="" class="embed-messageboard-result-icon"></div>-->
+<!--                <div data-v-b38b337f="" class="embed-messageboard-result-title">感谢留言</div>-->
+<!--                <div data-v-b38b337f="" class="embed-messageboard-result-content">我们会尽快与您联系</div>-->
+<!--                <div data-v-b38b337f="" class="embed-messageboard-result-close">关闭</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 </body>
 </html>

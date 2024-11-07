@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>产品编辑修改产品内容</title>
+    <link rel="stylesheet" th:href="@{/layuimini/lib/layui-v2.5.5/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuimini/lib/jq-module/zyupload/zyupload-1.0.0.min.css}" media="all">
+    <link rel="stylesheet" th:href="@{/layuimini/css/public.css}" media="all">
+</head>
+<body>
+
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">标题：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" value="1" name="product" title="产品" lay-skin="primary" checked>
+                    <input type="checkbox" value="2" name="patents" title="专利" lay-skin="primary">
+                    <input type="checkbox" value="3" name="soultion" title="解决方案" lay-skin="primary">
+                    <input type="checkbox" value="4" name="case" title="成功案例" lay-skin="primary">
+
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">上传图片：</label>
+                <div class="layui-upload-drag" id="test10">
+                    <i class="layui-icon"></i>
+                    <p>点击上传预览图</p>
+                    <div class="layui-hide" id="uploadDemoView">
+                        <hr>
+                        <img src="" alt="上传成功后渲染" style="max-width: 196px">
+                    </div>
+                </div>
+            </div>
+            <br/><br/>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">内容简介：</label>
+                <div class="layui-input-block">
+                    <textarea name="desc" placeholder="请输入内容简介" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">内容编辑：</label>
+
+                <div class="layui-input-block">
+                    <textarea id="edit" lay-verify="content0" style="display: none;"></textarea>
+                </div>
+            </div>
+
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="tijiao">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary" >重置</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<div class="layuimini-container">-->
+<!--    <div class="layuimini-main">-->
+<!--        <form class="layui-form" action="">-->
+<!--            &lt;!&ndash; ... 其他表单项 ... &ndash;&gt;-->
+
+<!--            &lt;!&ndash; 隐藏域用于存储产品ID &ndash;&gt;-->
+<!--            <input type="hidden" name="productId" id="productId" value="">-->
+
+<!--            &lt;!&ndash; ... 其他表单项 ... &ndash;&gt;-->
+
+<!--            <div class="layui-input-block">-->
+<!--                <button class="layui-btn" lay-submit lay-filter="tijiao">立即提交</button>-->
+<!--                <button type="reset" class="layui-btn layui-btn-primary" >重置</button>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!-- ... 其他脚本 ... -->
+<script type="text/javascript">
+    console.log("Already reach modify!!!")
+    layui.use(['form', 'layedit','upload','jquery','layer'], function () {
+        // ... 其他初始化代码 ...
+
+        // 获取产品ID参数并且回显
+        // var productId = getQueryVariable('productId');
+        var productId = "24"
+        if(productId) {
+            //如果有产品ID，则请求产品详情并填充表单
+            $.ajax({
+                url: '/searchData', // 修改为你的后端接口
+                data: {
+                    "prodId": productId
+                },
+                type: 'GET',
+                success: function(res) {
+                    if(res.statecode === 200) {
+                        // 填充表单
+                        console.log("res.data.productName = " + res.data.productName)
+                        console.log("res.data.productBrief = " + res.data.productBrief)
+                        console.log("res.data.productImage = " + res.data.productImage)
+                        $('#productId').val(res.data.productId);
+                        $('input[name="title"]').val(res.data.productName);
+                        $('textarea[name="desc"]').val(res.data.productBrief);
+                        $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', res.data.productImage);
+                        layedit.setContent(index, res.data.productContent, false); // 设置编辑器内容
+                    }
+                }
+            })
+            .fail(function (error) {
+                console.log("error is " + error)
+            });
+
+            // 接口里已经把数据放进去了，直接从request中拿就行
+            // layedit.setContent(index, res.data.productContent, false); // 设置编辑器内容
+        }
+
+
+        var $=layui.jquery
+        var form=layui.form
+        var edit = layui.edit;// js 文件得写
+        var layedit = layui.layedit;
+        var num=10
+        edit.render({
+            elem: '#test10'
+            ,url: '/modify' //改成您自己的上传接口
+            ,done: function(res){
+                console.log("my res = " + res)
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/pics/'+res.imagefile_path);
+                // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'http://shenshuyin.com:/enterprise_website/images/'+res.imagefile_path);
+                // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', 'E:\\shenshuyinweb\\PortalWebsiteSystem\\images\\'+res.imagefile_path);
+            }
+        });
+
+        layedit.set({
+            uploadImage: {
+                url: '/article_image' //接口url
+                ,type: 'post' //默认post
+            }
+        });
+        var index=layedit.build('edit'); //建立编辑器
+
+        form.verify({
+            content0:function (value) {
+                layedit.sync(index)
+            }
+
+        })
+
+        // 修改提交事件处理
+        form.on("submit(tijiao)",function (datas) {
+            // ... 其他代码 ...
+            console.log(datas.field)
+            var text = layedit.getContent(index)
+            console.log("my text = " + text)
+            var src = $('#uploadDemoView').find("img").attr("src");
+
+            // 定义正则表达式来匹配图片标签
+            var imgRegex = /<img src="([^"]+)" alt="无"><br>/g;
+
+            // 使用回调函数来替换所有匹配的图片标签
+            text = text.replace(imgRegex, '<img src="$1" height="50%" width="50%" style="display: block; margin-left: auto; margin-right: auto;" alt="无"><br>');
+            console.log("new text = " + text);
+
+            data=datas.field;
+
+            // 检查是否有产品ID，以确定是添加还是编辑
+            if(productId) {
+                // 编辑产品
+                $.ajax({
+                    url: '/modify/' + productId, // 修改为你的后端接口
+                    type: 'POST',
+                    data: {
+                        // ... 更新产品所需的数据 ...
+                        // 需要后端接口更新到数据库中
+                        "productId": productId
+                    },
+                    success: function(res) {
+                        if(res.statecode === 200) {
+                            layer.msg('更新成功', {
+                                icon: 1,
+                                time: 1000
+                            }, function(){
+                                history.go(-1); // 返回上一页
+                            });
+                        }
+                    }
+                });
+            } else {
+                // 添加产品
+                // ... 添加产品的代码 ...
+            }
+        });
+    });
+
+    // 获取URL参数中的 prodId 的函数
+    // function getQueryVariable(variable) {
+    //     var query = window.location.search.substring(1);
+    //     console.log("query = " + query)
+    //     var vars = query.split("&");
+    //     for (var i=0;i<vars.length;i++) {
+    //         var pair = vars[i].split("=");
+    //         if(pair[0] == variable){return pair[1];}
+    //     }
+    //     return false;
+    // }
+
+</script>
+</body>
+</html>

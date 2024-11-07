@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script>
+   var _hmt = _hmt || [];
+   (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c0b8714daf7adbdb9ebdf185385f7e0f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+   })();
+</script>
+
    <head>
       <!-- basic -->
       <meta charset="utf-8">
@@ -9,9 +19,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>深树荫</title>
+      <title>树荫机器视觉检测缺陷检测印刷检测</title>
       <meta name="keywords" content="">
-      <meta name="description" content="">
+      <meta name="description" content="机器视觉缺陷检测系统，检测内容包含模板对比、色差检测、OCR 文字识别、条码识别检测、二维码识别检测、脏点、白页、漏印错印等印刷缺陷检测；检测同时支持在线和离线检测">
       <meta name="author" content="">
       <link th:include="common :: common_head">
    </head>
@@ -90,25 +100,26 @@
                <div class="carousel-inner">
                   <div class="carousel-item active">
                      <div class="container">
-                        <h1 class="banner_taital">深树荫</h1>
-                        <p class="banner_text">Shenshuyin Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>
+                        <h1 class="banner_taital"></h1>
+                        <p class="banner_text"> </p>
+<!--                        <p class="banner_text">·外观检测·OCR 字符识别 ·视觉定位·错印检测</p>-->
+<!--                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>-->
                      </div>
                   </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <h1 class="banner_taital">深树荫</h1>
-                        <p class="banner_text">Shenshuyin Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="container">
-                        <h1 class="banner_taital">深树荫</h1>
-                        <p class="banner_text">ShenShuYin Intelligent Technology Co Ltd</p>
-                        <div class="read_bt"><a th:href="@{/about}" class="aboutus">关于我们</a></div>
-                     </div>
-                  </div>
+<!--                  <div class="carousel-item">-->
+<!--                     <div class="container">-->
+<!--                        <h1 class="banner_taital">深树荫</h1>-->
+<!--                        <p class="banner_text">Shenshuyin Intelligent Technology Co Ltd2</p>-->
+<!--                        <div class="read_bt"><a th:href="@{/about}" href="">关于我们</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
+<!--                  <div class="carousel-item">-->
+<!--                     <div class="container">-->
+<!--                        <h1 class="banner_taital">深树荫</h1>-->
+<!--                        <p class="banner_text">ShenShuYin Intelligent Technology Co Ltd3</p>-->
+<!--                        <div class="read_bt"><a th:href="@{/about}" class="aboutus">关于我们</a></div>-->
+<!--                     </div>-->
+<!--                  </div>-->
                </div>
             </div>
          </div>
@@ -118,8 +129,14 @@
       <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
-            <h1 class="services_taital">产品简介</h1>
-            <p class="services_text">自主研发</p>
+<!--            <h1 class="services_taital">产品简介</h1>-->
+            <h1 class="client_taital">产品简介</h1>
+            <p class="services_text">机器视觉缺陷检测系统，检测内容包含模板对比、色差检测、OCR 文字识别、
+                条码识别检测、二维码识别检测、脏点、白页、漏印错印等印刷缺陷检测；检测同时支持在线和离线检测，
+                传送带在线检测速率达 200m/min，检测印刷物的速率达到 5pc/s，离线检测支持设计稿模板导入且支持离线的单件、首件检测；
+                同时支持其他各类视觉的检测，如3C产品、机械零件尺寸、各类布料、覆膜等的机器视觉缺陷检测；产品可轻松适配安装在胶装龙、
+                骑订龙、折页机、试卷龙、锁线机、糊盒机、模切机、纸箱封箱机等设备上，可进行每小时3-4万件的检测。
+            </p>
             <div class="services_section_2">
                <div class="row">
                   <div class="col-md-4" th:each="cp,item :${session.cp}">
@@ -160,36 +177,36 @@
 <!--            </div>-->
 <!--      </div>-->
      
-<!--      <div class="client_section ">-->
-<!--         <div class="container">-->
-<!--            <h1 class="client_taital">轮播图</h1>-->
-<!--            <div class="client_section_2">-->
-<!--               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-<!--                  <ol class="carousel-indicators">-->
+      <div class="client_section ">
+         <div class="container">
+            <h1 class="client_taital">视觉检测案例展示</h1>
+            <div class="client_section_2">
+               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
 
-<!--                     <li th:each="intro,item :${session.company_list}" th:attr="data-slide-to=${item.index}" data-target="#carouselExampleIndicators" class=""th:classappend="${item.index==0} ? 'active' : ''"></li>-->
-<!--                  </ol>-->
-<!--                  <div class="carousel-inner" >-->
-<!--                     <div th:each="intros,items :${session.company_list}" class="carousel-item "th:classappend="${items.index==0}?'active':''">-->
-<!--                        <div  class="client_main">-->
-<!--                           <div class="box_left">-->
-<!--                              <p class="lorem_text" th:text="${intros.image_information}">内容</p>-->
-<!--                           </div>-->
-<!--                           <div class="box_right">-->
-<!--                                 <img  style="width: 700px;height: 300px" th:src="@{${intros.image_path_url}}"/>-->
-<!--                           </div>-->
-<!--                        </div>-->
-<!--                     </div>-->
-<!--                              </div>-->
-<!--                           </div>-->
-<!--                        </div>-->
-<!--                     </div>-->
-<!--                  </div>-->
-<!---->
-<!--               </div>-->
-<!--            </div>-->
-<!--         </div>-->
-<!--      </div>-->
+                     <li th:each="intro,item :${session.company_list}" th:attr="data-slide-to=${item.index}" data-target="#carouselExampleIndicators" class=""th:classappend="${item.index==0} ? 'active' : ''"></li>
+                  </ol>
+                  <div class="carousel-inner" >
+                     <div th:each="intros,items :${session.company_list}" class="carousel-item "th:classappend="${items.index==0}?'active':''">
+                        <div  class="client_main">
+                           <div class="box_left">
+                              <p class="lorem_text" th:text="${intros.image_information}">内容</p>
+                           </div>
+                           <div class="box_right">
+                                 <img  style="width: 700px;height: 300px" th:src="@{${intros.image_path_url}}"/>
+                           </div>
+                        </div>
+                     </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+      </div>
 
 
       <!-- client section start -->
@@ -197,12 +214,18 @@
       <div class="choose_section layout_padding">
          <div class="container">
             <h1 class="choose_taital">为什么选择我们</h1>
-            <p class="choose_text">选择深树荫，您将受益于尖端技术、广泛的应用范围、高精度和效率，以及市场认可的技术创新。我们能提供稳定可靠的技术支持，助您提升生产效率和产品质量。</p>
+<!--            <p class="choose_text">选择深树荫，您将受益于尖端技术、广泛的应用范围、高精度和效率，以及市场认可的技术创新。我们能提供稳定可靠的技术支持，助您提升生产效率和产品质量。</p>-->
+            <p class="choose_text">深树荫深耕机器视觉行业多年，拥有丰富的图像处理经验及缺陷检测方案，
+                我们提供成熟完整的视觉检测系统方案，满足您在自动化检测的一切智能化需求；
+                我们的产品应用在印刷品、3C产品、特殊材料、激光刻蚀等行业，可轻松适配安装在胶装龙、
+                骑订龙、折页机、试卷龙、锁线机、糊盒机、模切机、纸箱封箱机等设备，
+                我们不仅提供成熟的图像检测方案，更提供应用场景复杂的软件算法定制服务，
+                就算法而言，物理规律才是我们的极限</p>
             <div class="read_bt_1"><a th:href="@{/about}">了解更多</a></div>
-            <div class="newsletter_box">
-               <h1 class="let_text">Let Start Talk with Us</h1>
-               <div class="getquote_bt"><a th:href="@{/about}">Get A Quote</a></div>
-            </div>
+<!--            <div class="newsletter_box">-->
+<!--               <h1 class="let_text">Let Start Talk with Us</h1>-->
+<!--               <div class="getquote_bt"><a th:href="@{/about}">Get A Quote</a></div>-->
+<!--            </div>-->
          </div>
       </div>
 
@@ -212,7 +235,10 @@
 
       <div th:replace="common :: common_src"></div>
 
-   <script type="application/javascript">
+<!--      <img id="wechat" src="images/wechat.png" />-->
+      <img id="wechat" src="images/wechat.png" />
+
+      <script type="application/javascript">
 
       //show_detailpage_gy
       $(document).on("click",".aboutus",function () {

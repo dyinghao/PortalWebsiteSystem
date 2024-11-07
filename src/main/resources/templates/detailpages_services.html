@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?c0b8714daf7adbdb9ebdf185385f7e0f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 <head>
     <!-- basic -->
     <meta charset="utf-8">
@@ -9,9 +19,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>深树荫</title>
+    <title>深树荫机器视觉检测缺陷检测印刷检测</title>
     <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="description" content="机器视觉缺陷检测系统，检测内容包含模板对比、色差检测、OCR 文字识别、条码识别检测、二维码识别检测、脏点、白页、漏印错印等印刷缺陷检测；检测同时支持在线和离线检测">
     <meta name="author" content="">
     <link th:include="common :: common_head">
 </head>
@@ -33,5 +43,7 @@
 <div th:replace="common :: common_end"></div>
 <div th:replace="common :: common_beinan"></div>
 <div th:replace="common :: common_src"></div>
+<img id="wechat" src="images/wechat.png" />
+
 </body>
 </html>

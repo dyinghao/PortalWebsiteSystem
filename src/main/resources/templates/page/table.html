@@ -111,12 +111,13 @@
                     maxmin:true,
                     shadeClose: true,
                     area: ['70%', '70%'],
-                    content: '/upload',
+                    content: '/upload',//打开upload.html!!!
                 });
                 $(window).on("resize", function () {
                     layer.full(index);
                 });
-            } else if (obj.event === 'delete') {  // 监听删除操作
+            }
+            else if (obj.event === 'delete') {  // 监听删除操作
                 var checkStatus = table.checkStatus('currentTableId')
                     , data = checkStatus.data;
                 layer.open({
@@ -177,7 +178,7 @@
                     layer.full(index);
                 });
                 console.log("test obj = " + obj.data)
-                return false;
+                // return false;
             } else if (obj.event === 'delete') {
                 layer.confirm('真的删除行么', function (index) {
 

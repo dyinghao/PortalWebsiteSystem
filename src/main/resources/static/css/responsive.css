@@ -188,9 +188,10 @@
         width: 100%;
     }
     .footer_section {
-        padding-top: 270px;
+        /*padding-top: 270px;*/
+        padding-top: 10px;
         background-size: cover;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
     }
     .input_btn_main {
         width: 60%;
@@ -261,9 +262,10 @@
         width: 100%;
     }
     .footer_section {
-        padding-top: 230px;
+        /*padding-top: 230px;*/
+        padding-top: 10px;
         background-size: cover;
-        padding-bottom: 30px;
+        padding-bottom: 10px;
     }
     .input_btn_main {
         width: 90%;

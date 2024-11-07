@@ -95,7 +95,7 @@
             <div class="box">
                 <img th:src="@{${slideshows.image_path_url}}">
                 <div class="box-content">
-                    <h3 class="title">五昊科技</h3>
+                    <h3 class="title">深树荫</h3>
                     <span th:text="${slideshows.image_information}" class="post fq_fq"></span>
                 </div>
                 <ul class="icon">
@@ -119,14 +119,16 @@
             elem: '#test10'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                // $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                $('#uploadDemoView').removeClass('layui-hide').find('img').attr('src', '/pics/' + res.imagefile_path);
             }
         });
         upload.render({
             elem: '#test11'
             ,url: '/upload_image' //改成您自己的上传接口
             ,done: function(res){
-                $('#uploadview').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                // $('#uploadview').removeClass('layui-hide').find('img').attr('src', '/layuimini/images/'+res.imagefile_path);
+                $('#uploadview').removeClass('layui-hide').find('img').attr('src', '/pics/'+res.imagefile_path);
             }
         });
         $(document).on('click','#shan',function(){
